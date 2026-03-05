@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MODEL="mistral:7b-instruct-q4_K_M"   # Model quantized untuk CPU
+MODEL="mistral:latest"   # Model quantized untuk CPU
 MAX_DIFF_LINES=100
 
 function get_changed_files() {
