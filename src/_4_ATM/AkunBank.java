@@ -4,10 +4,6 @@ public class AkunBank {
     private String namaPemilik;
     private int saldo;
 
-    AkunBank(){
-
-    }
-
     AkunBank(String namaPemilik, int saldo){
         this.namaPemilik = namaPemilik;
         this.saldo = saldo;
