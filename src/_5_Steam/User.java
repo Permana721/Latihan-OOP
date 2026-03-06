@@ -1,30 +1,80 @@
 package _5_Steam;
 
+import java.util.ArrayList;
+
 public class User {
     private String namaUser;
     private int saldo;
-    private Game[] koleksi = new Game[10];
+    ArrayList<Game> koleksi = new ArrayList<>();
+    private int idGame;
     private int jumlahGame = 0;
+    private boolean ditemukan;
+
 
     public User(String namaUser, int saldo){
         this.namaUser = namaUser;
         this.saldo = saldo;
     }
 
+    public int getSaldo(){
+        return saldo;
+    }
+
     public void tambahSaldo(int saldo){
         this.saldo += saldo;
     }
 
-    public void beliGame(Game game){
-        if(saldo >= game.getHargaGame()){
-            saldo -= game.getHargaGame();
-            koleksi[jumlahGame] = game;
-            jumlahGame++;
-
-            System.out.println("Berhasil membeli " + game.getNamaGame());
+    public void getKoleksi(){
+        if (jumlahGame == 0) {
+            System.out.println("Koleksi kamu masih kosong. Ayo beli game dulu!");
+            return;
         }
-        else{
-            System.out.println("Saldo tidak cukup");
+
+        System.out.println("=== Koleksi Game Kamu ===");
+        for(int i = 0; i < jumlahGame; i++){
+            koleksi.get(i).tampilGame();
+        }
+    }
+
+    public void beliGame(ArrayList<? extends Game> list, int id){
+        for (Game games : list) {
+            if (games.getIdGame() == id) {
+                ditemukan = true;
+                if (saldo >= games.getHargaGame()) {
+                    saldo -= games.getHargaGame();
+                    koleksi.add(games);
+                    jumlahGame++;
+                    System.out.println("Berhasil membeli Game: " + games.getNamaGame() + "\nDengan harga: " + games.getHargaGame() + "\nSisa saldo: " + getSaldo());
+                } else {
+                    System.out.println("Maaf, saldo Anda tidak cukup. Kurang: Rp" + (games.getHargaGame() - getSaldo()));
+                }
+                break;
+            }
+        }
+
+        if (!ditemukan) {
+            System.out.println("ID Game tidak terdaftar di toko kami.");
+        }
+    }
+
+    public void beliGameDigital(ArrayList<GameDigital> listDigital, int id){
+        for (GameDigital games : listDigital) {
+            if (games.getIdGame() == id) {
+                ditemukan = true;
+                if (saldo >= games.getHargaGame()) {
+                    saldo -= games.getHargaGame();
+                    koleksi.add(games);
+                    jumlahGame++;
+                    System.out.println("Berhasil membeli Game: " + games.getNamaGame() + "\nDengan harga: " + games.getHargaGame() + "\nSisa saldo: " + getSaldo());
+                } else {
+                    System.out.println("Maaf, saldo Anda tidak cukup. Kurang: Rp" + (games.getHargaGame() - getSaldo()));
+                }
+                break;
+            }
+        }
+
+        if (!ditemukan) {
+            System.out.println("ID Game tidak terdaftar di toko kami.");
         }
     }
 }
