@@ -1,4 +1,4 @@
 package _5_Steam;
 
-public class Saldo {
+public class Saldo extends User{
 }
