@@ -9,9 +9,8 @@ public class GameFisik extends Game{
         super(idGame, namaGame, hargaGame);
     }
 
-    public void tampilGameFisik(){
-        System.out.println("ID: " + getIdGame());
-        System.out.println("Nama: " + getNamaGame());
-        System.out.println("Harga: " + getHargaGame());
+    public void tampilGame(){
+        super.tampilGame();
+        System.out.println("Tipe: Fisik \nJenis: " + "CD");
     }
 }
