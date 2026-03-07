@@ -3,6 +3,10 @@ package _5_Steam;
 public class GameDigital extends Game{
     private int sizeGB;
 
+    GameDigital(){
+
+    }
+
     GameDigital(int idGame, String namaGame, int hargaGame, int sizeGB){
         super(idGame, namaGame, hargaGame);
         this.sizeGB = sizeGB;
