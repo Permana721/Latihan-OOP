@@ -1,4 +1,5 @@
 package _5_Steam;
 
-public class Koleksi {
+public class Koleksi extends User{
+
 }
