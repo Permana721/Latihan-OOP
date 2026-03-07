@@ -17,9 +17,7 @@ public class GameDigital extends Game{
     }
 
     public void tampilGame(){
-        System.out.println("ID: " + getIdGame());
-        System.out.println("Nama: " + getNamaGame());
-        System.out.println("Harga: " + getHargaGame());
-        System.out.println("Size: " + getSizeGB());
+        super.tampilGame();
+        System.out.println("Tipe: Digital \nSize: " + getSizeGB() + " GB");
     }
 }
